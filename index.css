@@ -1,0 +1,163 @@
+body {
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background-color: black;
+}
+
+.menu_checkbox {
+	display: none;
+}
+
+.menu {
+	position: relative;
+}
+
+.menu_dots {
+	width: 6rem;
+	height: 6rem;
+	border-radius: 50%;
+	box-shadow: 0 0 0 0.3rem #c93348;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	transform: rotate(90deg);
+	transition: 0.3s;
+	cursor: pointer;
+}
+
+.menu_dots:hover {
+	transform: scale(1.2) rotate(90deg);
+}
+
+.menu_dot {
+	width: 0.45rem;
+	height: 0.45rem;
+	background-color: #c93348;
+	border-radius: 50%;
+}
+
+.menu_dot + .menu_dot {
+	margin-top: 0.3rem;
+}
+
+.menu_items {
+	font-size: 20px;
+	text-decoration: none;
+	list-style-type: none;
+	position: absolute;
+	top: -2.4rem;
+	bottom: -2.4rem;
+	left: -2.2rem;
+	width: 12rem;
+	height: 12rem;
+	pointer-events: none;
+	display: grid;
+	grid-template-columns: 0.8fr 0.8fr 0.8fr 0.8fr;
+	grid-template-rows: 0.8fr 0.8fr 0.8fr 0.8fr;
+	gap: 0px 0px;
+	grid-template-areas:
+		". a b ."
+		"h . . c"
+		"d . . g"
+		". f e .";
+
+	opacity: 0;
+	transition: 0.3s;
+}
+
+.item1 {
+	grid-area: a;
+}
+.item2 {
+	grid-area: b;
+}
+.item3 {
+	grid-area: c;
+}
+.item4 {
+	grid-area: d;
+}
+.item5 {
+	grid-area: e;
+}
+.item6 {
+	grid-area: f;
+}
+.item7 {
+	grid-area: g;
+}
+.item8 {
+	grid-area: h;
+}
+
+.fa {
+	color: #c93348;
+	transition: 1000ms;
+}
+
+.fa:hover {
+	transform: scale(1.9);
+}
+
+.item1:hover {
+	color: blue;
+}
+
+.item2:hover {
+	color: red;
+}
+
+.item3:hover {
+	color: rgb(255, 217, 0);
+}
+
+.item4:hover {
+	color: rgb(12, 12, 13);
+}
+
+.item5:hover {
+	color: rgb(32, 32, 107);
+}
+
+.item6:hover {
+	color: rgb(14, 216, 102);
+}
+
+.item7:hover {
+	color: rgb(14, 216, 102);
+}
+
+.item8:hover {
+	color: rgb(14, 216, 102);
+}
+
+.menu_checkbox:checked + .menu > .menu_dots {
+	transform: none;
+	box-shadow: 0 0 0 4rem #e6e4e4;
+}
+
+.menu_checkbox:checked + .menu > .menu_items {
+	opacity: 1;
+	pointer-events: auto;
+}
+
+.menu-closer-overlay {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: transparent;
+	border-radius: 50%;
+	z-index: 2;
+	pointer-events: none;
+}
+
+.menu_checkbox:checked + .menu > .menu-closer-overlay {
+	pointer-events: auto;
+	cursor: pointer;
+}
